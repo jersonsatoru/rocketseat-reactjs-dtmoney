@@ -1,12 +1,11 @@
 import React from 'react';
+import { createServer } from 'miragejs';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createServer } from 'miragejs'
-
 
 createServer({
   routes() {
-    this.namespace = 'api'
+    this.namespace = 'api';
     this.get('/transactions', () => [
       {
         id: 1,
@@ -14,7 +13,7 @@ createServer({
         amount: 4000,
         date: new Date(),
         type: 'deposit',
-        category: 'Desenvolvimento'
+        category: 'Desenvolvimento',
       },
       {
         id: 2,
@@ -22,7 +21,7 @@ createServer({
         amount: 4000,
         date: new Date(),
         type: 'withdraw',
-        category: 'Desenvolvimento'
+        category: 'Desenvolvimento',
       },
       {
         id: 3,
@@ -30,11 +29,11 @@ createServer({
         amount: 4000,
         date: new Date(),
         type: 'deposit',
-        category: 'Desenvolvimento'
-      }
-    ])
-  }
-})
+        category: 'Desenvolvimento',
+      },
+    ]);
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
@@ -9,13 +9,13 @@ export const Container = styled.div`
   div {
     background: var(--shape);
     padding: 1.5rem 2rem;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     color: var(--text-title);
 
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between
+      justify-content: space-between;
     }
 
     strong {
@@ -29,4 +29,4 @@ export const Container = styled.div`
       background: var(--green);
     }
   }
-`
+`;

@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 4rem;;
+  margin-top: 4rem;
 
   table {
     width: 100%;
@@ -23,16 +23,16 @@ export const Container = styled.div`
       border-radius: 0.25rem;
 
       &::first-child {
-        color: var(--text-title)
+        color: var(--text-title);
       }
 
       &.deposit {
-        color: var(--green)
+        color: var(--green);
       }
 
       &.withdraw {
-        color: var(--red)
+        color: var(--red);
       }
     }
   }
-`
+`;

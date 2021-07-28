@@ -14,7 +14,16 @@ interface Transaction {
   type: 'withdraw' | 'deposit';
 }
 
-export const TransactionContext = createContext<Transaction[]>([]);
+type TransactionInput = Omit<Transaction, 'id' | 'date'>;
+
+interface TransactionContextData {
+  transactions: Transaction[];
+  createTransaction: (t: TransactionInput) => Promise<void>;
+}
+
+export const TransactionContext = createContext<TransactionContextData>(
+  {} as TransactionContextData
+);
 
 export const TransactionProvider = ({ children }: TransactionProviderProps) => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -25,8 +34,13 @@ export const TransactionProvider = ({ children }: TransactionProviderProps) => {
       .then((response) => setTransactions(response.data.transactions));
   }, []);
 
+  async function createTransaction(transaction: TransactionInput) {
+    const { data } = await api.post('/transactions', transaction);
+    setTransactions([...transactions, data.transaction]);
+  }
+
   return (
-    <TransactionContext.Provider value={transactions}>
+    <TransactionContext.Provider value={{ transactions, createTransaction }}>
       {children}
     </TransactionContext.Provider>
   );

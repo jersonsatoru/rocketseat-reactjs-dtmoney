@@ -43,7 +43,7 @@ createServer({
     this.post('/transactions', (schema, request) => {
       const transaction = {
         ...JSON.parse(request.requestBody),
-        data: new Date(),
+        date: new Date(),
       };
 
       return schema.create('transaction', transaction);

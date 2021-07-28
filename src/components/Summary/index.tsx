@@ -7,8 +7,8 @@ import totalImg from '../../assets/total.svg';
 import { TransactionContext } from '../../hooks/TransactionContext';
 
 export function Summary() {
-  const data = useContext(TransactionContext);
-  console.log(data);
+  const { transactions } = useContext(TransactionContext);
+  console.log(transactions);
 
   return (
     <Container>
